@@ -17,13 +17,35 @@
       <input type="hidden" name="path" value="<%= path %>" />
       <button>Create Folder</button>
     </form>
+    <form
+      action="/upload/user/<%= username %><%= path %>"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <input type="hidden" name="parent_id" value="<%= parentId %>" />
+      <input type="hidden" name="path" value="<%= path %>" />
+      <label for="file">
+        <input type="file" name="file" id="file" />
+      </label>
+      <button>Upload File</button>
+    </form>
     <ul>
       <h4>Folder:</h4>
       <% dirs.forEach(dir => { %>
       <li>
-        <a href="/user/<%= username %><%= path %>/<%= dir.name %>"> <%= dir.name %> </a>
+        <a href="/user/<%= username %><%= path %>/<%= dir.name %>">
+          <%= dir.name %>
+        </a>
       </li>
 
+      <% }) %>
+    </ul>
+    <ul>
+      <h4>Files:</h4>
+      <% files.forEach(file => { %>
+      <li>
+        <a href="<%= file.url %>"><%= file.name %></a>
+      </li>
       <% }) %>
     </ul>
   </body>

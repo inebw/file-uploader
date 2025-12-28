@@ -16,7 +16,7 @@ const router = Router();
 
 router.get("/", indexController);
 
-router.post("/profile", upload.single("file"), uploadPost);
+
 router.get("/login", loginGet);
 router.post("/login", passport.authenticate("local"), loginPost);
 router.get("/logout", (req, res) =>
@@ -28,6 +28,8 @@ router.get("/logout", (req, res) =>
 router.get("/sign-up", signupGet);
 router.post("/sign-up", signupPost);
 router.get("/user/:username/home/{*splat}", userSpaceGet);
+router.post("/upload/user/:username/home/{*splat}", upload.single("file"), uploadPost);
 router.post("/user/:username/home/{*splat}", userSpacePost);
+
 
 module.exports = router;

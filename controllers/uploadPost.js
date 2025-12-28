@@ -1,4 +1,5 @@
 const supabase = require("../config/supabaseClient");
+const { prisma } = require("../lib/prisma");
 
 module.exports = async (req, res) => {
   try {
@@ -17,8 +18,17 @@ module.exports = async (req, res) => {
     // Optionally create a public URL or a signed URL
    const publicURL = supabase.storage.from(bucket).getPublicUrl(data.path).data.publicUrl
     // publicURL always returned; bucket must allow public access
-    console.log(publicURL)
-    return res.json({ path: data.path, publicURL });
+    
+    const {parent_id, path} = req.body;
+    const {username} = req.user;
+    await prisma.file.create({
+      data:{
+        name:originalname,
+        url:publicURL,
+        dirId:parseInt(parent_id)
+      }
+    })
+    res.redirect(`/user/${username}${path}`)
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Server error" });
