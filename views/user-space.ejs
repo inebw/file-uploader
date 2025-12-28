@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h2>User Space</h2>
+    <h3><%= path %></h3>
+    <form action="/user/<%= username %><%= path %>" method="post">
+      <label for="dir_name">
+        <p>Folder Name</p>
+        <input type="text" name="dir_name" id="dir_name" />
+      </label>
+      <input type="hidden" name="parent_id" value="<%= parentId %>" />
+      <input type="hidden" name="path" value="<%= path %>" />
+      <button>Create Folder</button>
+    </form>
+    <ul>
+      <h4>Folder:</h4>
+      <% dirs.forEach(dir => { %>
+      <li>
+        <a href="/user/<%= username %><%= path %>/<%= dir.name %>"> <%= dir.name %> </a>
+      </li>
+
+      <% }) %>
+    </ul>
+  </body>
+</html>

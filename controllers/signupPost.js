@@ -1,6 +1,6 @@
 const { body, validationResult, matchedData } = require("express-validator");
 const { prisma } = require("../lib/prisma");
-const bcrypt = require('bcryptjs')
+const bcrypt = require("bcryptjs");
 
 const validateUser = [
   body("username")
@@ -45,9 +45,14 @@ module.exports = [
           first_name: first_name,
           last_name: last_name,
           password: hashedPassword,
+          dirs: {
+            create: {
+              name: "Home",
+            },
+          },
         },
       });
-      res.redirect('/')
+      res.redirect("/");
     }
   },
 ];
