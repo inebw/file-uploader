@@ -1,0 +1,12 @@
+<form action="/login" method="post">
+    <%- include('partials/loginError', {errors:errors}) %>
+    <label for="username">
+        <p>Username</p>
+        <input type="text" id="username" name="username">
+    </label>
+    <label for="password">
+        <p>Password</p>
+        <input type="password" id="password" name="password">
+    </label>
+    <button type="submit">Login</button>
+</form>
