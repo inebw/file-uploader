@@ -7,18 +7,19 @@
   </head>
   <body>
     <h2>User Space</h2>
-    <h3><%= path %></h3>
-    <form action="/user/<%= username %><%= path %>" method="post">
+    <h3>Home/<%= path %></h3>
+    <form action="/user/<%= username %>/home/<%= path %>" method="post">
       <label for="dir_name">
         <p>Folder Name</p>
         <input type="text" name="dir_name" id="dir_name" />
       </label>
       <input type="hidden" name="parent_id" value="<%= parentId %>" />
       <input type="hidden" name="path" value="<%= path %>" />
+      <%- include("partials/errors") %>
       <button>Create Folder</button>
     </form>
     <form
-      action="/upload/user/<%= username %><%= path %>"
+      action="/upload/user/<%= username %>/home/<%= path %>"
       method="post"
       enctype="multipart/form-data"
     >
@@ -33,9 +34,15 @@
       <h4>Folder:</h4>
       <% dirs.forEach(dir => { %>
       <li>
-        <a href="/user/<%= username %><%= path %>/<%= dir.name %>">
+        <% if (path) { %>
+        <a href="/user/<%= username %>/home/<%= path %>/<%= dir.name %>">
           <%= dir.name %>
         </a>
+        <% } else { %>
+        <a href="/user/<%= username %>/home/<%= dir.name %>">
+          <%= dir.name %>
+        </a>
+        <% } %>
       </li>
 
       <% }) %>
@@ -44,7 +51,7 @@
       <h4>Files:</h4>
       <% files.forEach(file => { %>
       <li>
-        <a href="<%= file.url %>"><%= file.name %></a>
+        <a href="<%= file.url %>?download=<%= file.name %>"><%= file.name %></a>
       </li>
       <% }) %>
     </ul>

@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
         dirId:parseInt(parent_id)
       }
     })
-    res.redirect(`/user/${username}${path}`)
+    res.redirect(`/user/${username}/home/${path}`)
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Server error" });
