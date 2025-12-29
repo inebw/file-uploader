@@ -35,6 +35,8 @@ header,
   align-items: center;
 }
 
+.delete-open-svg,
+.delete-close-svg,
 .plus-svg,
 .user-svg,
 .home-svg,
@@ -92,9 +94,40 @@ header {
 }
 
 .card {
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.delete-folder {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: none;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.delete-open-svg {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
+  opacity: 0;
+}
+
+.delete-close-svg {
+  z-index: -1;
+}
+
+.delete-close-svg:hover {
+  opacity: 0;
+}
+
+.delete-close-svg:hover ~ .delete-open-svg {
+  opacity: 100%;
 }
 
 label[for="add-file-checkbox"] {
@@ -117,17 +150,16 @@ input[type="file"]::file-selector-button {
 }
 
 label {
-    user-select: none;
+  user-select: none;
 }
 
 .add-folder-li {
-    position: relative;
+  position: relative;
 }
 
 .add-folder-label {
-    cursor: pointer;
+  cursor: pointer;
 }
-
 
 #add-folder-checkbox:checked ~ .add-folder-label,
 .folder-form,
@@ -139,7 +171,7 @@ label {
   display: none;
 }
 
-#add-file-checkbox:checked ~ .add-file{
+#add-file-checkbox:checked ~ .add-file {
   display: flex;
   padding: 20px;
   flex-direction: column;
@@ -162,7 +194,6 @@ label {
   border-radius: 8px;
   margin-top: 20px;
 }
-
 
 #dropdown:checked ~ .dropdown {
   display: flex;
