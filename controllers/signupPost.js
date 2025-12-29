@@ -35,7 +35,7 @@ module.exports = [
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).render("sign-up", { errors: errors.array() });
+      res.status(400).render("sign-up", { user:req.user, errors: errors.array(), title:"Sign Up: Invalid Input Provided"});
     } else {
       const { username, first_name, last_name, password } = matchedData(req);
       const hashedPassword = await bcrypt.hash(password, 10);

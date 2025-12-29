@@ -1,23 +1,44 @@
-<form action="/sign-up" method="post">
-    <label for="username">
-        <p>Username</p>
-        <input type="text" id="username" name="username" required>
-    </label>
-    <label for="first_name">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap");
+    </style>
+    <link rel="stylesheet" href="/styles.css" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('partials/header', {user:user}) %>
+    <form class="get-form" action="/sign-up" method="post">
+      <label for="first_name">
         <p>First Name</p>
-        <input type="text" id="first_name" name="first_name" required>
-    </label>
-    <label for="last_name">
+        <input type="text" id="first_name" name="first_name" required />
+      </label>
+      <label for="last_name">
         <p>Last name</p>
-        <input type="text" id="last_name" name="last_name" required>
-    </label>
-    <label for="password">
+        <input type="text" id="last_name" name="last_name" required />
+      </label>
+      <label for="username">
+        <p>Username</p>
+        <input type="text" id="username" name="username" required />
+      </label>
+      <label for="password">
         <p>Enter Password</p>
-        <input type="password" id="password" name="password" required>
-    </label>
-    <label for="confirm_password">
+        <input type="password" id="password" name="password" required />
+      </label>
+      <label for="confirm_password">
         <p>Confirm Password</p>
-        <input type="password" id="confirm_password" name="confirm_password" required>
-    </label>
-    <button type="submit">Sign Up</button>
-</form>
+        <input
+          type="password"
+          id="confirm_password"
+          name="confirm_password"
+          required
+        />
+      </label>
+      <button type="submit">Sign Up</button>
+      <%- include('partials/errors') %>
+    </form>
+  </body>
+</html>
