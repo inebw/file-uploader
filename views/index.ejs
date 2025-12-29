@@ -12,7 +12,27 @@
   <body>
     <%- include('partials/header', {user:user}) %>
     <% if (user) { %>
-    <a href="/user/<%= user.username %>/home/">See Your Files: Go to Home</a>
+    <a class="site-link" href="/user/<%= user.username %>/home/">See Your Files: Go to Home</a>
+    <% } else { %>
+    <a class="site-link" href="/sign-up">Click here to get started</a>
     <% } %>
+    <div class="site-info">
+        <div class="site-card">
+            <svg class="site-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>folder-home</title><path d="M20 6H12L10 4H4A2 2 0 0 0 2 6V18A2 2 0 0 0 4 20H20A2 2 0 0 0 22 18V8A2 2 0 0 0 20 6M17 13V17H15V14H13V17H11V13H9L14 9L19 13Z" /></svg>
+            <p>Manage your files from your Home Directory</p>
+        </div>
+        <div class="site-card">
+            <svg class="site-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>folder-key</title><path d="M4 4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6H12L10 4M11 10C12.3 10 13.4 10.8 13.8 12H20V14H18V16H16V14H13.8C13.4 15.2 12.3 16 11 16C9.3 16 8 14.7 8 13S9.3 10 11 10M11 12C10.4 12 10 12.4 10 13C10 13.6 10.4 14 11 14C11.6 14 12 13.6 12 13S11.6 12 11 12Z" /></svg>
+            <p>Keep your files and folder Private</p>
+        </div>
+        <div class="site-card">
+            <svg class="site-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>folder-multiple-plus</title><path d="M2 20V6H0V20C0 21.1 .9 22 2 22H20V20H2M22 4H14L12 2H6C5.6 2 5.2 2.1 4.9 2.3L4.3 2.9C4.1 3.2 4 3.6 4 4V16C4 16.4 4.1 16.8 4.3 17.1C4.4 17.2 4.5 17.3 4.5 17.4C5 17.8 5.5 18 6 18H22C23.1 18 24 17.1 24 16V6C24 4.9 23.1 4 22 4M22 12H19V15H17V12H14V10H17V7H19V10H22V12Z" /></svg>
+            <p>Add unlimited number of folder</p>
+        </div>
+        <div class="site-card">
+            <svg class="site-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>folder-off</title><path d="M22.11 21.46L20.84 22.73L18.11 20H4C2.9 20 2 19.11 2 18V6C2 5.42 2.25 4.9 2.64 4.53L1.11 3L2.39 1.73L22.11 21.46M22 18V8C22 6.89 21.1 6 20 6H12L10 4H7.2L21.88 18.68C21.96 18.47 22 18.24 22 18Z" /></svg>
+            <p>Delete your folder anytime</p>
+        </div>
+    </div>
   </body>
 </html>

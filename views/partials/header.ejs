@@ -17,6 +17,7 @@
           <p><%= user.first_name %> <%= user.last_name %></p>
         </div>
         <div class="dropdown">
+          <a href="/user/<%= user.username %>/home/">Home</a>
           <a href="/logout">Logout</a>
         </div>
     <% } else { %>

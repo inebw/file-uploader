@@ -46,11 +46,11 @@ header,
 
 .thumbnail,
 .folder-svg {
-    width: 150px;
+  width: 150px;
 }
 
 img.thumbnail {
-    border-radius: 8px;
+  border-radius: 8px;
 }
 
 header {
@@ -86,10 +86,26 @@ header {
 
 .path {
   font-weight: bold;
-  gap: 2px;
+  gap: 8px;
   border: solid #8d99ae 1px;
   border-radius: 8px;
   padding: 5px 15px 5px 15px;
+}
+
+.path-links {
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.path-links,
+.path-home-link {
+    transition: transform 0.2s ease-in 0.1s;
+}
+
+.path > a:hover {
+    transform: translateY(-5px);
 }
 
 .home-svg {
@@ -247,6 +263,40 @@ button {
   cursor: pointer;
 }
 
+
+.site-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-auto-rows: 300px;
+    gap: 50px;
+    padding: 25px;
+    border: solid #8d99ae 1px;
+    border-radius: 8px;
+}
+
+.site-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.site-card > p {
+    font-size: 1.2rem;
+    font-weight: bold1;
+    text-align: center;
+}
+
+.site-link {
+    padding: 25px;
+    border: solid #8d99ae 1px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
 @media (max-width: 1500px) {
   body {
     margin: 10px 100px 10px 100px;
@@ -264,6 +314,11 @@ button {
 
   .get-form {
     margin: 30px;
+  }
+
+  .site-info {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 250px;
   }
 }
 
