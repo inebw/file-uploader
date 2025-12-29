@@ -24,6 +24,7 @@ const getDirectories = async (parentId) => {
     },
     select: {
       name: true,
+      id:true,
     },
   });
 };

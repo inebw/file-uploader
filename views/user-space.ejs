@@ -30,6 +30,13 @@
       </li>
       <% dirs.forEach(dir => { %>
       <li class="card">
+        <form action="/deleteFolder" method="post">
+            <input type="hidden" name="parentId" value="<%= parentId %>">
+            <input type="hidden" name="folderId" value="<%= dir.id %>">
+            <input type="hidden" name="path" value="<%= path %>">
+            <input type="hidden" name="username" value="<%= username %>">
+            <button onclick="return confirm('Are You sure You wante to Delete this Folder?')">Delete</button>
+        </form>
         <% if (path) { %>
         <a href="/user/<%= username %>/home/<%= path %>/<%= dir.name %>">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
