@@ -269,21 +269,21 @@ label {
   cursor: pointer;
 }
 
-
 .select,
-.dropdown > a{
-    padding: 2px 10px 2px 10px;
-    border-radius: 8px;
+.dropdown > a {
+  padding: 2px 10px 2px 10px;
+  border-radius: 8px;
 }
 
+a:hover,
 .close-folder-checkbox:hover,
 button:hover {
-    opacity: 70%;
+  opacity: 70%;
 }
 
 .select:hover,
 .dropdown > a:hover {
-    background-color: #2b2d42;
+  background-color: #2b2d42;
 }
 
 .close-folder-checkbox,
