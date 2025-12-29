@@ -47,7 +47,8 @@ model File {
   name String
   addedOn DateTime @default(now())
   url String
-  path String @default("empty")
+  path String
+  mimetype String 
   dir Dir @relation(fields: [dirId], references: [id])
   dirId Int
 }

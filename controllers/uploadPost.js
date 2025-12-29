@@ -22,6 +22,16 @@ module.exports = async (req, res) => {
     const publicURL = supabase.storage.from(bucket).getPublicUrl(data.path)
       .data.publicUrl;
     // publicURL always returned; bucket must allow public access
+    let fileType = req.file.mimetype.split('/')[0]
+    const fileExtension = req.file.mimetype.split('/')[1]
+
+    if (fileExtension.includes('pdf')) {
+      fileType = fileExtension
+    }
+
+    if (!['pdf', 'video', 'image'].includes(fileType)) {
+      fileType = 'others'
+    }
 
     await prisma.file.create({
       data: {
@@ -29,6 +39,7 @@ module.exports = async (req, res) => {
         url: publicURL,
         dirId: parseInt(parent_id),
         path: data.path,
+        mimetype:fileType
       },
     });
     res.redirect(`/user/${username}/home/${path}`);
