@@ -45,7 +45,7 @@ header,
 header {
   background-color: #8d99ae;
   border-radius: 8px;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 15px 5px 15px;
   justify-content: space-between;
   position: relative;
   font-weight: bold;
@@ -76,6 +76,9 @@ header {
 .path {
   font-weight: bold;
   gap: 2px;
+  border: solid #8d99ae 1px;
+  border-radius: 8px;
+  padding: 5px 15px 5px 15px;
 }
 
 .home-svg {
@@ -117,6 +120,17 @@ label {
     user-select: none;
 }
 
+.add-folder-li {
+    position: relative;
+}
+
+.add-folder-label {
+    cursor: pointer;
+}
+
+
+#add-folder-checkbox:checked ~ .add-folder-label,
+.folder-form,
 #add-folder-checkbox,
 #add-file-checkbox,
 .add-file,
@@ -126,6 +140,18 @@ label {
 }
 
 #add-file-checkbox:checked ~ .add-file{
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border: dashed #8d99ae 1px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+#add-folder-checkbox:checked ~ .folder-form {
   display: flex;
   padding: 20px;
   flex-direction: column;
@@ -159,6 +185,7 @@ label {
   cursor: pointer;
 }
 
+.close-folder-checkbox,
 button,
 input {
   border-radius: 8px;
@@ -174,6 +201,7 @@ input:focus {
   outline: solid #edf2f4 2px;
 }
 
+.close-folder-checkbox,
 button {
   border: solid #edf2f4 1px;
   cursor: pointer;

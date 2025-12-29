@@ -10,15 +10,13 @@
     <title><%= title %></title>
   </head>
   <body>
-    <%- include('partials/header', {user:user}) %> <%-
-    include('partials/pathMenu', {username:username, path:path}) %> <%-
-    include('partials/add-folder-form', {username:username, path:path,
-    parentId:parentId}) %> <%- include('partials/add-file-form',
-    {username:username, path:path, parentId:parentId}) %>
+    <%- include('partials/header', {user:user}) %> 
+    <%-include('partials/pathMenu', {username:username, path:path}) %> 
+    <%- include('partials/add-file-form', {username:username, path:path, parentId:parentId}) %>
     <ul class="folder-contents">
       <li class="card add-folder-li">
-        <div>
-          <input type="checkbox" id="add-folder-checkbox" />
+        <input type="checkbox" id="add-folder-checkbox" />
+        <label class="add-folder-label" for="add-folder-checkbox">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <title>Add Folder</title>
             <path
@@ -26,8 +24,9 @@
               d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z M15,12H13V10H11V12H9V14H11V16H13V14H15V12Z"
             />
           </svg>
-          <p>Add File</p>
-        </div>
+          <p>Add Folder</p>
+        </label>
+        <%- include('partials/add-folder-form', {username:username, path:path, parentId:parentId}) %> 
       </li>
       <% dirs.forEach(dir => { %>
       <li class="card">
