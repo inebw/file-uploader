@@ -10,6 +10,7 @@ const userSpaceGet = require("../controllers/userSpaceGet");
 const userSpacePost = require("../controllers/userSpacePost");
 const loginPost = require("../controllers/loginPost");
 const deletePost = require("../controllers/deleteFolderPost");
+const deleteFilePost = require("../controllers/deleteFilePost");
 
 const upload = multer({ storage: multer.memoryStorage() });
 
@@ -32,5 +33,6 @@ router.get("/user/:username/home/{*splat}", userSpaceGet);
 router.post("/upload/user/:username/home/{*splat}", upload.single("file"), uploadPost);
 router.post("/user/:username/home/{*splat}", userSpacePost);
 router.post("/deleteFolder", deletePost)
+router.post("/deleteFile", deleteFilePost)
 
 module.exports = router;
