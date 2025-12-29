@@ -16,12 +16,18 @@ body {
   margin: 10px 350px 10px 350px;
   background-color: #2b2d42;
   height: 95vh;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 svg {
   fill: #edf2f4;
 }
 
+.card,
+label[for="add-file-checkbox"],
+.select,
 header,
 .path,
 .logo {
@@ -29,6 +35,8 @@ header,
   align-items: center;
 }
 
+.plus-svg,
+.user-svg,
 .home-svg,
 .logo-svg {
   height: 2em;
@@ -40,22 +48,25 @@ header {
   padding: 5px 10px 5px 10px;
   justify-content: space-between;
   position: relative;
+  font-weight: bold;
 }
 
 .get-form {
-    margin: 10% 20% 10% 20%;
-    display: flex;
-    flex-direction: column;
-    border: solid #8d99ae 1px;
-    border-radius: 8px;
-    padding: 20px;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
+  margin: 10% 20% 10% 20%;
+  display: flex;
+  flex-direction: column;
+  border: solid #8d99ae 1px;
+  border-radius: 8px;
+  padding: 20px;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
 }
 
 .select {
   position: relative;
+  gap: 5px;
+  font-size: 1.1rem;
 }
 
 .logo {
@@ -74,16 +85,63 @@ header {
 .folder-contents {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
 }
 
+.card {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+label[for="add-file-checkbox"] {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border: dashed #8d99ae 1px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+  font-size: 0;
+  border: none;
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: #8d99ae;
+}
+
+label {
+    user-select: none;
+}
+
+#add-folder-checkbox,
+#add-file-checkbox,
+.add-file,
 .dropdown,
 #dropdown {
   display: none;
 }
 
+#add-file-checkbox:checked ~ .add-file{
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border: dashed #8d99ae 1px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+
 #dropdown:checked ~ .dropdown {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   background-color: #8d99ae;
   border-radius: 8px;
   padding: 5px 15px 5px 10px;
@@ -103,22 +161,22 @@ header {
 
 button,
 input {
-    border-radius: 8px;
-    background-color: #8d99ae;
-    font-weight: bold;
-    padding: 5px 15px 5px 15px;
-    outline: none;
-    font-size: 1rem;
+  border-radius: 8px;
+  background-color: #8d99ae;
+  font-weight: bold;
+  padding: 5px 15px 5px 15px;
+  outline: none;
+  font-size: 1rem;
 }
 
 button:focus,
 input:focus {
-    outline: solid #edf2f4 2px;
+  outline: solid #edf2f4 2px;
 }
 
 button {
-    border: solid #edf2f4 1px;
-    cursor: pointer;
+  border: solid #edf2f4 1px;
+  cursor: pointer;
 }
 
 @media (max-width: 1500px) {
@@ -148,8 +206,8 @@ button {
   header {
     flex-direction: column;
   }
-  
-  .get-form{
+
+  .get-form {
     margin: 10px;
   }
 }
