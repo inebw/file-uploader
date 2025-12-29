@@ -45,6 +45,7 @@ header,
   height: 2em;
 }
 
+.folder-open-svg,
 .thumbnail,
 .folder-svg {
   width: 150px;
@@ -174,6 +175,31 @@ header {
   fill: #98c1d9;
 }
 
+.folder-link {
+  position: relative;
+}
+
+.folder-open-svg {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s ease-in;
+}
+
+.folder-svg {
+  transition: opacity 0.2s ease-in;
+}
+
+.folder-svg:hover {
+  opacity: 0;
+}
+
+.folder-svg:hover ~ .folder-open-svg {
+  opacity: 100%;
+}
+
 @keyframes mover {
   0% {
     transform: translate(-100%, 0);
@@ -275,7 +301,6 @@ label {
   border-radius: 8px;
 }
 
-a:hover,
 .close-folder-checkbox:hover,
 button:hover {
   opacity: 70%;
