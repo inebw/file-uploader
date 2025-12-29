@@ -3,34 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap");
+    </style>
     <link rel="stylesheet" href="/styles.css">
     <title><%= title %></title>
   </head>
   <body>
-    <h2>User Space</h2>
-    <h3>Home/<%= path %></h3>
+    <%- include('partials/header', {user:user}) %>
     <%- include('partials/pathMenu', {username:username, path:path}) %>
     <%- include('partials/add-folder-form', {username:username, path:path, parentId:parentId}) %>
     <%- include('partials/add-file-form', {username:username, path:path, parentId:parentId}) %>
-    <ul>
-      <h4>Folder:</h4>
+    <ul class="folder-contents">
       <% dirs.forEach(dir => { %>
       <li>
         <% if (path) { %>
         <a href="/user/<%= username %>/home/<%= path %>/<%= dir.name %>">
-          <%= dir.name %>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>folder</title><path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z" /></svg>
+          <p><%= dir.name %></p>
         </a>
         <% } else { %>
         <a href="/user/<%= username %>/home/<%= dir.name %>">
-          <%= dir.name %>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>folder</title><path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z" /></svg>
+          <p><%= dir.name %></p>
         </a>
         <% } %>
       </li>
 
       <% }) %>
-    </ul>
-    <ul>
-      <h4>Files:</h4>
       <% files.forEach(file => { %>
       <li>
         <a href="<%= file.url %>?download=<%= file.name %>"><%= file.name %></a>

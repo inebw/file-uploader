@@ -6,6 +6,7 @@ module.exports = async (req, res) => {
 
   res.render("user-space", {
     title: "User Space",
+    user:req.user,
     path: path,
     dirs: dirs,
     files: files,

@@ -3,21 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap");
+    </style>
+    <link rel="stylesheet" href="/styles.css">
     <title><%= title %></title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <nav>
-      <a href="/login">Login</a>
-      <a href="/sign-up">Sign Up</a>
-      <a href="/logout">LogOut</a>
-    </nav>
+    <%- include('partials/header', {user:user}) %>
     <% if (user) { %>
+    <a href="/user/<%= user.username %>/home/">See Your Files: Go to Home</a>
     <% } %>
-    <form action="/profile" method="post" enctype="multipart/form-data">
-        <label for="file"></label>
-      <input type="file" name="file" id="file" />
-      <button>Upload</button>
-    </form>
   </body>
 </html>

@@ -33,6 +33,7 @@ module.exports = [
       );
       res.status(400).render("user-space", {
         title: "Invalid Folder Name: Retry",
+        user:req.user,
         dirs: dirs,
         files: files,
         username: username,
