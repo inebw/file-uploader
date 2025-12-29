@@ -65,6 +65,9 @@
 
       <% }) %> <% files.forEach(file => { %>
       <li class="card">
+        <a href="<%= file.url %>?download=<%= file.name %>">
+            <svg class="download-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>download</title><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" /></svg>
+        </a>
         <form action="/deleteFile" method="post">
             <input type="hidden" name="filePath" value="<%= file.path %>">
             <input type="hidden" name="fileId" value="<%= file.id %>">
@@ -76,7 +79,7 @@
             </button>
         </form>
         <%- include('partials/file-thumbnail', {file:file}) %>
-        <a href="<%= file.url %>?download=<%= file.name %>"><%= file.name %></a>
+        <p><%= file.name %></p>
       </li>
       <% }) %>
     </ul>
