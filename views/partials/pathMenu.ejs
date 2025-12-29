@@ -1,0 +1,11 @@
+<div class="path">
+  <a href="/user/<%= username %>/home/"> Home</a><span> /</span>
+  <% if (path) { %>
+    <% let basePath = `/user/${username}/home` %>
+    <% path.split('/').forEach(dir => { %>
+        <% basePath += `/${dir}` %>
+        <a href="<%= basePath %>"><%= dir %></a>
+        <span>/</span>
+    <% }) %>
+  <% } %> 
+</div>

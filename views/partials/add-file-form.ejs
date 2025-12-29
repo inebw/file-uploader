@@ -1,0 +1,12 @@
+<form
+  action="/upload/user/<%= username %>/home/<%= path %>"
+  method="post"
+  enctype="multipart/form-data"
+>
+  <input type="hidden" name="parent_id" value="<%= parentId %>" />
+  <input type="hidden" name="path" value="<%= path %>" />
+  <label for="file">
+    <input type="file" name="file" id="file" />
+  </label>
+  <button>Upload File</button>
+</form>

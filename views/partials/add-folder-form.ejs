@@ -1,0 +1,10 @@
+<form action="/user/<%= username %>/home/<%= path %>" method="post">
+  <label for="dir_name">
+    <p>Folder Name</p>
+    <input type="text" name="dir_name" id="dir_name" />
+  </label>
+  <input type="hidden" name="parent_id" value="<%= parentId %>" />
+  <input type="hidden" name="path" value="<%= path %>" />
+  <%- include("errors") %>
+  <button>Create Folder</button>
+</form>
